@@ -1,11 +1,12 @@
 ## About
 
-This repository contains implementations of some data structures and algorithms. It serves the purpose of reference. Probable not production ready.
+This repository contains implementations of some data structures and algorithms. It serves the purpose of reference. Not for production use.
 
-### What do you have
+### What do you have?
 
-* Shell Sort
-* Knuth Shuffle
+* Knuth Shuffle - returns a shuffled copy of the array
+* Shell Sort - returns a sorted copy of the array
+* Quick Sort - returns a sorted copy of the array
 
 ## Development
 

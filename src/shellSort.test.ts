@@ -3,7 +3,7 @@ import { shuffle } from "./shuffle";
 
 const TEST_ARRAY = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-function lessThan(a: number, b: number) {
+function lessThan(a: number, b: number): boolean {
     return a < b;
 }
 

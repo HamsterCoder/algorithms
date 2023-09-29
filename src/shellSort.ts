@@ -8,9 +8,7 @@ export const shellSort = function<T> (array: T[], lessThan: (a: T, b: T) => bool
         h = 3 * h + 1;
     }
 
-    while (h >= 1) {
-        console.log(`h: ${h}`);
-        
+    while (h >= 1) {        
         for (let i = 0; i < n - h; i += 1) {
             for (let j = i; j < n; j += h) {
                 let k = j;

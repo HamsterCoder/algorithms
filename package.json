@@ -4,7 +4,7 @@
   "description": "Implementation of some data structures and algorithms",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
   },
   "author": "",
   "license": "MIT",
