@@ -7,6 +7,7 @@ This repository contains implementations of some data structures and algorithms.
 * Knuth Shuffle - returns a shuffled copy of the array
 * Shell Sort - returns a sorted copy of the array
 * Quick Sort - returns a sorted copy of the array
+* Insertion Sort - returns a sorted copy of the array
 
 ## Development
 

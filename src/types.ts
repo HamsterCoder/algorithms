@@ -1,0 +1,1 @@
+export type SortMethod<T> = (array: T[], lessThan: (a: T, b: T) => boolean) => T[];
