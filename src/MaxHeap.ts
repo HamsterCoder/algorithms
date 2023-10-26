@@ -3,8 +3,21 @@ export class MaxHeap<T> {
     size: number = 0;
     lessThan: (a: T, b: T) => boolean;
 
-    constructor(lessThan: (a: T, b: T) => boolean) {
+    constructor(lessThan: (a: T, b: T) => boolean, items?: T[]) {
         this.lessThan = lessThan;
+        this.heapify(items);
+    }
+
+    heapify(items: T[] = []) {
+        for (let i = 0; i < items.length; i += 1) {
+            this.items[i + 1] = items[i];
+        }
+
+        this.size = items.length;
+
+        for (let i = Math.floor(this.items.length / 2); i > 0; i -= 1) {
+            this.balanceDown(i);
+        }
     }
 
     balanceUp(i: number): void {

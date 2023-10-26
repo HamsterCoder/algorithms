@@ -8,7 +8,7 @@ This repository contains implementations of some data structures and algorithms.
 * Shell Sort - returns a sorted copy of the array
 * Quick Sort - returns a sorted copy of the array
 * Insertion Sort - returns a sorted copy of the array
-* MaxHeap - allows for `add` and `removeMax` operations (// TODO heapify)
+* MaxHeap - allows for `add` and `removeMax` operations (with heapify)
 
 ## Development
 
@@ -16,4 +16,4 @@ Testcases are created with `jest`. Run testcases:
 
 ```
 npm run test
-```s
+```

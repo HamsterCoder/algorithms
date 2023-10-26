@@ -4,13 +4,7 @@ describe('MaxHeap', () => {
     let heap: MaxHeap<number>;
 
     beforeEach(() => {
-        heap = new MaxHeap((a, b) => a < b);
-
-        heap.add(1);
-        heap.add(2);
-        heap.add(3);
-        heap.add(4);
-        heap.add(5);
+        heap = new MaxHeap((a, b) => a < b, [1, 2, 3, 4, 5]);
     });
 
     test('Correctly counts items', () => {
@@ -26,5 +20,15 @@ describe('MaxHeap', () => {
         expect(heap.removeMax()).toEqual(5);
         expect(heap.removeMax()).toEqual(4);
         expect(heap.size).toEqual(3);
+    });
+
+    test('Correctly adds a max', () => {
+        expect(heap.add(6));
+        expect(heap.removeMax()).toEqual(6);
+    });
+
+    test('Correctly adds some value', () => {
+        expect(heap.add(3));
+        expect(heap.removeMax()).toEqual(5);
     });
 });
