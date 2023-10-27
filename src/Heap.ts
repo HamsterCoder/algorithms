@@ -1,11 +1,14 @@
-export class MaxHeap<T> {
+export class Heap<T> {
     items: T[] = [];
     size: number = 0;
-    lessThan: (a: T, b: T) => boolean;
+    compare: (a: T, b: T) => boolean;
 
-    constructor(lessThan: (a: T, b: T) => boolean, items?: T[]) {
-        this.lessThan = lessThan;
+    constructor(compare: (a: T, b: T) => boolean, items?: T[]) {
+        console.log('Heap.constructor called');
+        this.compare = compare;
         this.heapify(items);
+
+        console.log(this.items);
     }
 
     heapify(items: T[] = []) {
@@ -24,7 +27,7 @@ export class MaxHeap<T> {
         let item = this.items[i];
         let parentIndex = Math.floor(i / 2);
 
-        while (this.lessThan(this.items[parentIndex], item) && i > 1) {
+        while (this.compare(this.items[parentIndex], item) && i > 1) {
             this.items[i] = this.items[parentIndex];
             this.items[parentIndex] = item;
             i = parentIndex;
@@ -48,8 +51,8 @@ export class MaxHeap<T> {
         let leftChildIndex = 2 * i;
         let rightChildIndex = 2 * i + 1;
 
-        while (this.lessThan(item, this.items[leftChildIndex]) || this.lessThan(item, this.items[rightChildIndex])) {
-            if (this.lessThan(this.items[leftChildIndex], this.items[rightChildIndex])) {
+        while (this.compare(item, this.items[leftChildIndex]) || this.compare(item, this.items[rightChildIndex])) {
+            if (this.compare(this.items[leftChildIndex], this.items[rightChildIndex])) {
                 this.items[i] = this.items[rightChildIndex];
                 this.items[rightChildIndex] = item;
                 i = rightChildIndex;
@@ -64,9 +67,9 @@ export class MaxHeap<T> {
         }
     }
 
-    removeMax(): T {
+    removeRoot(): T {
         if (this.size === 0) {
-            throw new Error('MaxHeap: cannot remove max, heap is empty.');
+            throw new Error('Heap: cannot remove root, heap is empty.');
         }
 
         const root = this.items[1];

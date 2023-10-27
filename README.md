@@ -9,6 +9,7 @@ This repository contains implementations of some data structures and algorithms.
 * Quick Sort - returns a sorted copy of the array
 * Insertion Sort - returns a sorted copy of the array
 * MaxHeap - allows for `add` and `removeMax` operations (with heapify)
+* MinHeap - allows for `add` and `removeMin` operations (with heapify)
 
 ## Development
 
