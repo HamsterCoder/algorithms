@@ -4,11 +4,8 @@ export class Heap<T> {
     compare: (a: T, b: T) => boolean;
 
     constructor(compare: (a: T, b: T) => boolean, items?: T[]) {
-        console.log('Heap.constructor called');
         this.compare = compare;
         this.heapify(items);
-
-        console.log(this.items);
     }
 
     heapify(items: T[] = []) {
@@ -18,7 +15,7 @@ export class Heap<T> {
 
         this.size = items.length;
 
-        for (let i = Math.floor(this.items.length / 2); i > 0; i -= 1) {
+        for (let i = Math.floor(this.size / 2); i > 0; i -= 1) {
             this.balanceDown(i);
         }
     }
@@ -51,8 +48,8 @@ export class Heap<T> {
         let leftChildIndex = 2 * i;
         let rightChildIndex = 2 * i + 1;
 
-        while (this.compare(item, this.items[leftChildIndex]) || this.compare(item, this.items[rightChildIndex])) {
-            if (this.compare(this.items[leftChildIndex], this.items[rightChildIndex])) {
+        while (leftChildIndex <= this.size && this.compare(item, this.items[leftChildIndex]) || rightChildIndex <= this.size && this.compare(item, this.items[rightChildIndex])) {
+            if (rightChildIndex <= this.size && this.compare(this.items[leftChildIndex], this.items[rightChildIndex])) {
                 this.items[i] = this.items[rightChildIndex];
                 this.items[rightChildIndex] = item;
                 i = rightChildIndex;
@@ -82,7 +79,9 @@ export class Heap<T> {
         this.size -= 1;
 
         // Balance new root
-        this.balanceDown(1);
+        if (this.size > 1) {
+            this.balanceDown(1);
+        }
 
         return root;
     }
