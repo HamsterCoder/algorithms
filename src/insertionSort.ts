@@ -5,7 +5,7 @@ export const insertionSort = function<T>(array: T[], lessThan: (a: T, b: T) => b
         let curr = sortedArray[i];
         let j = i - 1;
 
-        while (lessThan(curr, sortedArray[j])) {
+        while (j > -1 && lessThan(curr, sortedArray[j])) {
             sortedArray[j + 1] = sortedArray[j];
             sortedArray[j] = curr;
             j -= 1;
